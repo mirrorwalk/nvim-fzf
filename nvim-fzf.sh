@@ -82,5 +82,4 @@ selected=$(printf "%s\n" "${dirs[@]}" | fzf --preview 'tree -L 1 {} | head -100'
 
 [ -z "$selected" ] && exit 0
 
-# Open in nvim
-exec nvim "$selected"
+nvim "$selected"
