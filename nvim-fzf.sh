@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 CONFIG_DIR="$HOME/.config/nvim-fzf"
 CONFIG_FILE="$CONFIG_DIR/config"
