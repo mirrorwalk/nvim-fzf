@@ -1,11 +1,11 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 CONFIG_DIR="$HOME/.config/nvim-fzf"
 CONFIG_FILE="$CONFIG_DIR/config"
 
 # If config file doesn't exist, help the user set it up
 if [ ! -f "$CONFIG_FILE" ]; then
-  echo "⚠️  Config file not found at: $CONFIG_FILE"
+  echo "Config file not found at: $CONFIG_FILE"
   read -rp "Do you want me to create a template config for you? [y/N] " reply
   if [[ "$reply" =~ ^[Yy]$ ]]; then
     mkdir -p "$CONFIG_DIR"
