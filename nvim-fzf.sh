@@ -24,12 +24,12 @@ node_modules
 target
 .direnv
 EOF
-    echo "✅ Created template config at $CONFIG_FILE"
+    echo "Created template config at $CONFIG_FILE"
     echo "Opening directory so you can edit it..."
     cd "$CONFIG_DIR" || exit 1
     exec ${EDITOR:-nvim} config
   else
-    echo "❌ No config, exiting."
+    echo "No config, exiting."
     exit 1
   fi
 fi
