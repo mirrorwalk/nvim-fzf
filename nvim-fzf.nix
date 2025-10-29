@@ -57,7 +57,7 @@ in {
 
     programs.bash = lib.mkIf cfg.bashKeybind.enable {
       initExtra = ''
-        bind '"\${cfg.bashIntegration.keybind}":"${nvim-fzf}/bin/nvim-fzf\n"'
+        bind '"\${cfg.bashKeybind.keybind}":"${nvim-fzf}/bin/nvim-fzf\n"'
       '';
     };
   };
