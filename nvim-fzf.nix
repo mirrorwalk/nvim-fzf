@@ -28,12 +28,6 @@ in {
       type = lib.types.listOf lib.types.str;
       default = [];
       description = "Root directories to search for projects";
-      example = lib.literalExpression ''
-        [
-          "''${config.home.homeDirectory}/projects"
-          "''${config.home.homeDirectory}/notes"
-        ]
-      '';
     };
 
     ignore = lib.mkOption {
@@ -47,26 +41,24 @@ in {
       description = "Directory patterns to ignore during search";
     };
 
-    bashIntegration = {
-        enable = lib.mkEnableOption "Enable bash integration";
-        keybind = lib.mkOption {
-            default = "C-g";
-            description = "Keybind for bash";
-        };
+    bashKeybind = {
+      enable = lib.mkEnableOption "Enable bash integration";
+      keybind = lib.mkOption {
+        default = "C-g";
+        description = "Keybind for bash";
+      };
     };
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = [ nvim-fzf ];
+    home.packages = [nvim-fzf];
 
     home.file.".config/nvim-fzf/config".source = configFile;
 
     programs.bash = lib.mkIf cfg.bashIntegration.enable {
-        initExtra = ''
+      initExtra = ''
         bind '"\${cfg.bashIntegration.keybind}":"${nvim-fzf}/bin/nvim-fzf\n"'
-        '';
-
-
+      '';
     };
   };
 }
