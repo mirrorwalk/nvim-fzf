@@ -55,7 +55,7 @@ in {
 
     home.file.".config/nvim-fzf/config".source = configFile;
 
-    programs.bash = lib.mkIf cfg.bashIntegration.enable {
+    programs.bash = lib.mkIf cfg.bashKeybind.enable {
       initExtra = ''
         bind '"\${cfg.bashIntegration.keybind}":"${nvim-fzf}/bin/nvim-fzf\n"'
       '';
